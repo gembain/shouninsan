@@ -1,0 +1,17 @@
+### OSX ###
+.DS_Store
+
+## Environment normalization:
+/.bundle/
+/vendor/bundle
+
+### Rails ###
+.byebug_history
+.env.*
+!.env.test
+.rspec
+/coverage/
+/log
+/public/system
+/spec/tmp
+/tmp
