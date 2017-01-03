@@ -1,0 +1,2 @@
+class Shounin < ApplicationRecord
+end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @shounin.url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shounin.description %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @shounin.email %>
+</p>
+
+<p>
+  <strong>Approval:</strong>
+  <%= @shounin.approval %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @shounin.comment %>
+</p>
+
+<%= link_to 'Edit', edit_shounin_path(@shounin) %> |
+<%= link_to 'Back', shounins_path %>
