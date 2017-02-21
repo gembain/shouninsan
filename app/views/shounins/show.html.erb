@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @shounin.url %>
-</p>
-
-<p>
   <strong>Description:</strong>
   <%= @shounin.description %>
 </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @shounin.email %>
-</p>
+<%= form_for(@shounin) do |f| %>
+  <div class="field">
+    <%= f.label :approval %>
+    <%= f.check_box :approval %>
+  </div>
 
-<p>
-  <strong>Approval:</strong>
-  <%= @shounin.approval %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @shounin.comment %>
-</p>
+  <% unless @shounin.approval %>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, :size => "20x10" %>
+  </div>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_shounin_path(@shounin) %> |
 <%= link_to 'Back', shounins_path %>
+<script>
+
+$(function(){
+  setTimeout(function(){
+   $('#notice'). fadeOut("slow");
+ }, 900);
+});
+</script>

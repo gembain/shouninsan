@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class ShouninsController < ApplicationController
   before_action :set_shounin, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +26,7 @@ class ShouninsController < ApplicationController
     @shounin = Shounin.new(shounin_params)
 
     if @shounin.save
-      redirect_to @shounin, notice: 'Shounin was successfully created.'
+      redirect_to @shounin, notice: '承認申請フォームが作成されました！'
     else
       render :new
     end
