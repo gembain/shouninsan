@@ -6,26 +6,28 @@
 </p>
 
 <%= form_for(@shounin) do |f| %>
-  <div class="field">
+  <div class="field" >
     <%= f.label :approval %>
-    <%= f.check_box :approval %>
+    <%= f.button "承認します" %>
+    <button id="show-textarea"> 承認しません </button>
   </div>
+  <%= f.text_area :comment, id: "textarea" %>
 
-  <% unless @shounin.approval %>
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment, :size => "20x10" %>
-  </div>
+  <% if @shounin.approval %>
+  <p>承認しました</p>
+  <% elsif @shounin.approval.nil? %>
+  <% else %>
+  <p>承認しません</p>
+  <%= @shounin.comment %>
   <% end %>
 <% end %>
 
 <%= link_to 'Edit', edit_shounin_path(@shounin) %> |
 <%= link_to 'Back', shounins_path %>
-<script>
 
-$(function(){
-  setTimeout(function(){
-   $('#notice'). fadeOut("slow");
- }, 900);
+<script type="text/javascript">
+$('#textarea').hide();
+$('#show-textarea').click(function(){
+  $('#textarea').show();
 });
 </script>
