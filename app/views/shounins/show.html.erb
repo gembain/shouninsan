@@ -19,8 +19,10 @@
       </div>
   <% end %>
   <% if @shounin.approval==false %>
+      <% unless @shounin.comment %>
     <%= f.text_area :comment, id: "textarea" %>
     <%= f.submit %>
+      <% end %>
   <% end %>
 <% end %>
     <!-- <button id="show-textarea"> 承認しません </button> -->
@@ -30,11 +32,8 @@
       <% else %>
       <p>承認しません</p>
       <p><%= @shounin.comment %><p>
-
     <% end %>
   <% end %>
-
-
 
 <%= link_to 'Edit', edit_shounin_path(@shounin) %>
 <%= link_to 'Back', shounins_path %>
