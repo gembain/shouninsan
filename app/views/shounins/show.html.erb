@@ -8,32 +8,40 @@
 <%= form_for @shounin do |f| %>
   <div class="field" >
     <%= f.label :approval %>
-    <%= f.radio_button :approval, '1' %>
-    <%= f.radio_button :approval, '0' %>
-        <%= f.submit %>
-    <!-- <button id="show-textarea"> 承認しません </button> -->
   </div>
-  <%= f.text_area :comment, id: "textarea" %>
-
-  <% if @shounin.approval %>
-  <% # @shounin.approval = 1 %>
-    <% if @shounin.approval==1 %>
-    <p>承認しました</p>
-    <% end %>
-  <% elsif @shounin.approval.nil? %>
-
-  <% else %>
-  <p>承認しません</p>
-  <%= @shounin.comment %>
+  <% if @shounin.approval.nil? %>
+      <span>承認します</span>
+      <%= f.radio_button :approval, '1' %>
+      <span>承認しません</span>
+      <%= f.radio_button :approval, '0' %>
+      <div class="actions">
+          <%= f.submit %>
+      </div>
+  <% end %>
+  <% if @shounin.approval==false %>
+    <%= f.text_area :comment, id: "textarea" %>
+    <%= f.submit %>
   <% end %>
 <% end %>
+    <!-- <button id="show-textarea"> 承認しません </button> -->
+  <% unless @shounin.approval.nil? %>
+    <% if @shounin.approval %>
+      <p>承認します</p>
+      <% else %>
+      <p>承認しません</p>
+      <p><%= @shounin.comment %><p>
 
-<%= link_to 'Edit', edit_shounin_path(@shounin) %> |
+    <% end %>
+  <% end %>
+
+
+
+<%= link_to 'Edit', edit_shounin_path(@shounin) %>
 <%= link_to 'Back', shounins_path %>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $('#textarea').hide();
 $('#show-textarea').click(function(){
   $('#textarea').show();
 });
-</script>
+</script> -->
