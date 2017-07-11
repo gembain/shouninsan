@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shounin.description %>
+</p>
+
+<%= form_for @shounin do |f| %>
+  <div class="field" >
+    <%= f.label :approval %>
+    <%= f.radio_button :approval, '1' %>
+    <%= f.radio_button :approval, '0' %>
+        <%= f.submit %>
+    <!-- <button id="show-textarea"> 承認しません </button> -->
+  </div>
+  <%= f.text_area :comment, id: "textarea" %>
+
+  <% if @shounin.approval %>
+  <% # @shounin.approval = 1 %>
+    <% if @shounin.approval==1 %>
+    <p>承認しました</p>
+    <% end %>
+  <% elsif @shounin.approval.nil? %>
+
+  <% else %>
+  <p>承認しません</p>
+  <%= @shounin.comment %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_shounin_path(@shounin) %> |
+<%= link_to 'Back', shounins_path %>
+
+<script type="text/javascript">
+$('#textarea').hide();
+$('#show-textarea').click(function(){
+  $('#textarea').show();
+});
+</script>

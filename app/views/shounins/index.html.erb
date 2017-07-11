@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shounins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Description</th>
+      <th>Email</th>
+      <th>Approval</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shounins.each do |shounin| %>
+      <tr>
+        <td><%= shounin.url %></td>
+        <td><%= shounin.description %></td>
+        <td><%= shounin.email %></td>
+        <td><%= shounin.approval %></td>
+        <td><%= shounin.comment %></td>
+        <td><%= link_to 'Show', shounin %></td>
+        <td><%= link_to 'Edit', edit_shounin_path(shounin) %></td>
+        <td><%= link_to 'Destroy', shounin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shounin', new_shounin_path %>
