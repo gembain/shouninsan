@@ -8,6 +8,7 @@
 ### Rails ###
 .byebug_history
 .env.*
+.env
 !.env.test
 .rspec
 /coverage/
