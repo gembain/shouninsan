@@ -3,7 +3,8 @@
 class ShouninsController < ApplicationController
   before_action :set_shounin, only: [:show, :edit, :update, :destroy]
 
-  http_basic_authenticate_with :name => ENV['BASIC_AUTHENTICATE_NAME']  , :password => ENV['BASIC_AUTHENTICATE_PASSWORD'], :only => :index
+  http_basic_authenticate_with :name => ENV['BASIC_AUTHENTICATE_NAME'], :password => ENV['BASIC_AUTHENTICATE_PASSWORD'], :only => [:index, :edit]
+  
 
   # GET /shounins
   def index

@@ -15,7 +15,7 @@
       <span>承認しません</span>
       <%= f.radio_button :approval, '0' %>
       <div class="actions">
-          <%= f.submit %>
+          <%= f.submit '確定', :class=>"button"%>
       </div>
   <% end %>
   <% if @shounin.approval==false %>
@@ -35,7 +35,7 @@
     <% end %>
   <% end %>
 
-<%= link_to 'Edit', edit_shounin_path(@shounin) %>
+<%= link_to 'Edit', edit_shounin_path(@shounin), class: "button" %>
 <%= link_to 'Back', shounins_path %>
 
 <!-- <script type="text/javascript">
